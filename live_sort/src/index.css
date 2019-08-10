@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+*, body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+a {
+  color: #4aaea5;
+  text-decoration: none;
+  transition: 0.5s;
+}
+a:hover {
+  color: #56dbd1;
+}
+
+.element_center-hv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fancy-text {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.fancy-text:before, .fancy-text:after {
+  content: "";
+  border-top: 2px solid;
+  margin: 0 20px 0 0;
+  flex: 1 0 20px;
+}
+.fancy-text:after {
+  margin: 0 0 0 20px;
+}
+
+.text {
+  font-size: 16px;
+  color: #ffffff;
+  transition: 0.5s;
+}
+.text_hover:hover {
+  color: #56dbd1;
+  cursor: pointer;
+}
+
+.subtext {
+  font-size: 14px;
+  color: #989898;
+  transition: 0.5s;
+}
+
+.header {
+  font-size: 20px;
+  color: #ffffff;
+  transition: 0.5s;
+}
+
+.block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.block_expanded {
+  padding: 20px;
+}
+
+.btn {
+  color: #ffffff;
+  outline: none;
+  padding: 15px;
+  background-color: #4aaea5;
+  border: none;
+  border-radius: 15px;
+  transition: 0.5s;
+}
+.btn:hover {
+  cursor: pointer;
+  background-color: #3f8075;
+}
+.btn + .btn {
+  margin-left: 10px;
+}
+
+.logo {
+  width: 25vh;
+  height: 25vh;
+}
+
+.b_hidden {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+/*# sourceMappingURL=index.css.map */

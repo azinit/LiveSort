@@ -1,0 +1,56 @@
+@import "../../colors"
+@import "../../animations"
+
+
+// Flexbox dynamic sizes https://codepen.io/tutsplus/pen/zezpMW
+.array-list
+  flex-wrap: nowrap
+  //align-items: center
+  //justify-content: center
+  //background-color: $soft-grey
+  width: 70vw
+  &__element
+    flex-shrink: 2
+    padding: 0
+    user-select: none
+
+    color: $soft-grey
+    background-color: $bright-grey
+    //height: 150px
+    //width: 150px
+    //flex: 1 1 content
+    height: 10rem
+    width: 10rem
+    border-radius: 10px
+    //border: 1px solid $grey
+
+    //transition: background-color, transform, box-shadow 1s
+    transition: 0.7s
+    box-shadow: 0 10px 15px -20px rgba(0,0,0,0.2)
+
+    //animation: float 3s ease-in-out infinite
+    & + &
+      margin-left: 10px
+
+    &:hover
+      //cursor: pointer
+      box-shadow: 0 10px 15px -13px rgba(0,0,0,0.5)
+      transform: scale(1.05)
+      //background: linear-gradient(135deg, rgba(62,63,65,1) 0%, rgba(72,72,74,1) 100%)
+      //transition: transform, box-shadow 1s
+    &:active
+      background-color: $grey
+      animation: shake 2s 1
+      //tran1
+      // sition: background-color 1s
+    &_selected
+      background-color: $grey
+    &_swapped
+      background-color: $beige
+      color: $white
+      transition: 0.4s
+      & + &
+        margin-left: 5px
+    &_disabled
+      background-color: $dark-grey
+      border: 1px solid $bright-grey

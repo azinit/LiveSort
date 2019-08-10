@@ -1,0 +1,7 @@
+.app-live-sort {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+  height: 100vh;
+}
+
+/*# sourceMappingURL=App.css.map */

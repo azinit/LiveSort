@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap')
+@import "colors"
+
+*, body
+  font-family: "Open Sans", sans-serif
+  font-size: 20px
+  font-weight: 400
+
+a
+  color: $beige
+  text-decoration: none
+  transition: 0.5s
+  &:hover
+    color: $soft-beige
+
+.element_center-hv
+  display: flex
+  justify-content: center
+  align-items: center
+  
+// https://codepen.io/trys/pen/vjRXLW/
+.fancy-text
+  display: flex
+  width: 100%
+  justify-content: center
+  align-items: center
+  text-align: center
+  &:before, &:after
+    content: ''
+    border-top: 2px solid
+    margin: 0 20px 0 0
+    flex: 1 0 20px
+  &:after
+    margin: 0 0 0 20px
+
+
+.text
+  font-size: 16px
+  color: $white
+  transition: 0.5s
+  &_hover
+    &:hover
+      color: $soft-beige
+      cursor: pointer
+
+.subtext
+  font-size: 14px
+  color: $grey
+  transition: 0.5s
+
+.header
+  font-size: 20px
+  color: $white
+  transition: 0.5s
+
+.block
+  display: flex
+  justify-content: center
+  align-items: center
+  align-content: center
+  flex-wrap: wrap
+  &_expanded
+    padding: 20px
+
+.btn
+  color: $white
+  outline: none
+  padding: 15px
+  background-color: $beige
+  border: none
+  border-radius: 15px
+  transition: 0.5s
+  &:hover
+    cursor: pointer
+    background-color: $dark-beige
+  & + &
+    margin-left: 10px
+
+.logo
+  width: 25vh
+  height: 25vh
+
+.b_hidden
+  opacity: 0.0
+  transition: 0.5s
