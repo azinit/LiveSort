@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './Thumbnail.css'
-
 /**
  * Thumbnail of {component} for demonstrate and selecting
  * **/
