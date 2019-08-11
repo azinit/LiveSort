@@ -1,0 +1,60 @@
+// https://codepen.io/Mark_Bowley/pen/mEtqj?editors=1100
+
+// https://codepen.io/PaLy90/pen/JacEL
+// https://codepen.io/yunntan/pen/qsvCo
+// https://www.designcouch.com/home/why/2013/04/09/css3-bubble-with-no-images/
+@import "../../../css/colors"
+@import "../../../css/animations"
+
+// Match with box-colors?
+$reflex-disabled:         rgba(165, 165, 165, 0.1)
+$reflex-base:             rgba(255, 255, 255, 0.1)
+$reflex-active:           rgba(74, 174, 165,  0.8)
+$reflex-selected:         rgba(255, 255, 255, 0.4)
+$reflex-selected-soft:    rgba(255, 255, 255, 0.2)
+$reflex-bright:           rgba(255, 255, 255, 0.5)
+$reflex-none:             rgba(255, 255, 255, 0)
+$soft-shadow:             rgba(0, 0, 0, 0.05)
+$shadow:                  rgba(0, 0, 0, 0.1)
+$dark-shadow:             rgba(0, 0, 0, 0.2)
+
+@mixin reflection($shadow-property, $reflex-color)
+  box-shadow: 0 20px 30px $shadow-property, inset 0 10px 30px 10px $reflex-color
+
+.bubble-list
+  &__element
+    @include reflection($shadow, $reflex-base)
+    border-radius: 50%
+    animation: float 3s ease-in-out infinite
+
+    //&:after
+    //  //background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%)
+    //  background: -webkit-radial-gradient(center, ellipse cover, $reflex-base, $reflex-none 70%)
+    //  border-radius: 50%
+    //  box-shadow: inset 0 20px 30px $reflex-base
+    //  content: ""
+    //  //left: 10px
+    //  position: absolute
+    //  //height: 180px
+    //  //width: 180px
+    //  height: 10rem
+    //  width: 10rem
+
+    &:hover
+      @include reflection($dark-shadow, $reflex-selected-soft)
+      animation: float 1s ease-in-out infinite
+    &:active
+      @include reflection($dark-shadow, $reflex-bright)
+      animation: float 0.4s ease-in-out infinite
+
+    &_selected
+      @include reflection($dark-shadow, $reflex-selected)
+      //background-color: $grey
+    &_active
+      @include reflection($dark-shadow, $reflex-active)
+      transition: 0.4s
+      & + &
+        margin-left: 5px
+    &_disabled
+      @include reflection($soft-shadow, $reflex-disabled)
+      color: $grey

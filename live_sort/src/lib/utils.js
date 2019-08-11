@@ -1,7 +1,12 @@
-function swap(i, j, array, view=null) {
+function swap(i, j, array, controller=null) {
     [array[i], array[j]] = [array[j], array[i]];
-    if (view) view.handlerSwap(i, j);
+    if (controller) controller.handlerSwap(i, j);
 
+}
+
+
+function range(n) {
+    return [...Array(n).keys()];
 }
 
 function extract_all(src, key) {
@@ -32,4 +37,4 @@ function sleep(ms) {
 //     }
 // }
 
-export {swap, sleep, extract_all}
+export {swap, sleep, extract_all, range}

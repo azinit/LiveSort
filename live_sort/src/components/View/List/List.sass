@@ -1,0 +1,28 @@
+@import "../../../css/colors"
+
+.list
+  flex-wrap: nowrap
+  width: 70vw
+  &__element
+    outline: none
+    user-select: none
+    transition: 0.7s
+
+    flex-shrink: 2
+    width: 10rem
+    padding: 0
+
+    color: $soft-grey
+
+    &:before
+      content: ""
+      display: block
+      padding-top: 100%
+    & + &
+      margin-left: 10px
+
+    &:hover
+      transform: scale(1.05)
+    &:active
+    &_selectedz
+    &_disabled

@@ -11,10 +11,26 @@ class Slider extends Component {
         value:      this.props.value || 50,
     };
 
-    label    = this.props.labelEnabled;
-    rangeDOM = React.createRef();
-
+    label       = this.props.labelEnabled;
     isToggleble = this.props.onToggle;
+    rangeDOM    = React.createRef();
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        const isValueUpdated          = nextState.value !== this.state.value;
+        const isSliderSwitchDisabled  = this.props.disabled !== undefined && nextProps.disabled !== this.props.disabled;
+        const isSliderToggled         = "---";
+        // console.log(isValueUpdated, isSliderSwitchDisabled, isSliderToggled);
+        return isValueUpdated || isSliderSwitchDisabled || isSliderToggled;
+    }
+
+    componentWillUpdate(nextProps, nextState, nextContext) {
+        const isSliderSwitchDisabled  = this.props.disabled !== undefined && nextProps.disabled !== this.props.disabled;
+
+        if (isSliderSwitchDisabled) {
+            this.onClick(null, true);
+            this.isToggleble = (nextProps.disabled) ? false : this.props.onToggle;
+        }
+    }
 
     render() {
         let label_hover = (this.isToggleble) ? "text_hover" : "";
@@ -35,19 +51,12 @@ class Slider extends Component {
                     onChange={this.onChange}
                     ref={this.rangeDOM}
                 />
-                {/*<h3>{this.state.value}</h3>*/}
-
-                {/*<input*/}
-                {/*    min="1" value={value}*/}
-                {/*    type="range" className="slider" id="musicSettings"*/}
-                {/*    onChange={this.changeVolume}*/}
-                {/*/>*/}
             </div>
         );
     }
 
-    onClick = (e) => {
-        if (this.isToggleble) {
+    onClick = (e, force) => {
+        if (this.isToggleble || force) {
             // init args
             let rangeDOM = this.rangeDOM.current;
             let {labelEnabled, labelDisabled} = this.props;
@@ -61,7 +70,7 @@ class Slider extends Component {
                 this.label = (isEnabled) ? labelEnabled : labelDisabled;
             }
             // togglePlaying Parent
-            this.props.onToggle();
+            if (this.isToggleble)   this.props.onToggle();
         } else {
             console.log("Impossible to toggle!");
         }

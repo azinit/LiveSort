@@ -1,0 +1,26 @@
+@import "../../../css/colors"
+@import "../../../css/animations"
+
+
+// Flexbox dynamic sizes https://codepen.io/tutsplus/pen/zezpMW
+.array-list
+  &__element
+    border-radius: 10px
+    background-color: $bright-grey
+    box-shadow: 0 10px 15px -20px rgba(0,0,0,0.2)
+
+    &:hover
+      box-shadow: 0 10px 15px -13px rgba(0,0,0,0.5)
+    &:active
+      background-color: $grey
+      animation: shake 2s 1
+    &_selected
+      background-color: $grey
+    &_active
+      background-color: $beige
+      color: $white
+      & + &
+        margin-left: 5px
+    &_disabled
+      background-color: $dark-grey
+      border: 1px solid $bright-grey

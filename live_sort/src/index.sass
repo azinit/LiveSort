@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap')
-@import "colors"
+//@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap')
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i&display=swap')
+@import "./css/colors"
 
 *, body
   font-family: "Open Sans", sans-serif
@@ -42,6 +43,18 @@ a
     &:hover
       color: $soft-beige
       cursor: pointer
+  &_main
+    color: $soft-beige
+
+
+.text-block
+  & + &
+    margin-top: 20px
+  &__paragraph
+    text-align: left
+    justify-content: flex-start
+    & + &
+      margin-top: 10px
 
 .subtext
   font-size: 14px
@@ -65,6 +78,7 @@ a
 .btn
   color: $white
   outline: none
+  user-select: none
   padding: 15px
   background-color: $beige
   border: none
@@ -76,9 +90,21 @@ a
   & + &
     margin-left: 10px
 
+  &_inline
+    background-color: transparent
+    &:hover
+      background-color: transparent
+      color: $soft-grey
+
 .logo
-  width: 25vh
-  height: 25vh
+  width: 20vh
+  height: 20vh
+  opacity: 0.7
+  object-fit: contain
+  transition: 1s
+  &:hover
+    opacity: 1.0
+    cursor: pointer
 
 .b_hidden
   opacity: 0.0

@@ -1,0 +1,138 @@
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  3% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  5% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  8% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  10% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  13% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  15% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  25% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  35% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  45% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  50% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+@keyframes twirl {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(1deg);
+  }
+  20% {
+    transform: rotate(2deg);
+  }
+  30% {
+    transform: rotate(3deg);
+  }
+  40% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  60% {
+    transform: rotate(-1deg);
+  }
+  70% {
+    transform: rotate(-2deg);
+  }
+  80% {
+    transform: rotate(-3deg);
+  }
+  90% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(-1deg);
+  }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.thumbnail {
+  transition: 0.5s;
+  opacity: 0.5;
+}
+.thumbnail + .thumbnail {
+  margin-left: 20px;
+}
+.thumbnail__img {
+  object-fit: cover;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 30px;
+  transition: 1s;
+  border: 1px solid #3e3f41;
+}
+.thumbnail__label {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 14px;
+  color: #3e3f41;
+  transition: 0.5s;
+}
+.thumbnail:hover {
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+.thumbnail:hover .thumbnail__img {
+  border: 1px solid #4aaea5;
+}
+.thumbnail:hover .thumbnail__label {
+  color: #4aaea5;
+}
+.thumbnail_active {
+  opacity: 0.6;
+}
+.thumbnail_active .thumbnail__img {
+  border: 1px solid #989898;
+}
+.thumbnail_active .thumbnail__label {
+  color: #989898;
+}
+.thumbnail_disabled:hover {
+  cursor: default;
+  transform: none;
+}
+.thumbnail_disabled:hover .thumbnail__img {
+  border: 1px solid #3e3f41;
+}
+.thumbnail_disabled:hover .thumbnail__label {
+  color: #3e3f41;
+}
+.thumbnail_disabled:active {
+  animation: twirl 1s infinite;
+}
+
+/*# sourceMappingURL=Thumbnail.css.map */

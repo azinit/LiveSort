@@ -1,3 +1,6 @@
+.settings {
+  transition: 1s;
+}
 .settings__text {
   text-align: center;
 }

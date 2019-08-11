@@ -1,0 +1,42 @@
+@import '../../../css/colors'
+
+.tooltip
+  $self: &
+  position: relative
+  display: inline-block
+
+
+  &__text
+    font-size: 14px
+    visibility: hidden
+    width: 120px
+    background-color: $soft-black
+    color: #fff
+    text-align: center
+    border-radius: 6px
+    padding: 10px
+    position: absolute
+    z-index: 1
+    top: 110%
+    left: 50%
+    margin-left: -60px
+
+    /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+    opacity: 0
+    transition: opacity 1s
+
+    //&::after
+    //  content: " "
+    //  position: absolute
+    //  bottom: 100%
+    //  left: 50%
+    //  margin-right: -5px
+    //  border-width: 5px
+    //  border-style: solid
+    //  border-color: transparent transparent $soft-black transparent
+
+
+  &:hover
+    #{$self}__text
+      visibility: visible
+      opacity: 1

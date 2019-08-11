@@ -7,7 +7,7 @@ class SpeedSlider extends Component {
             <Fragment>
 
                 <Slider
-                    labelEnabled={"Speed"}
+                    labelEnabled={"Sort speed"}
                     value={1}
                     step={0.25}
                     min={0.25}

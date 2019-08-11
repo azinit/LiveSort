@@ -1,35 +1,39 @@
 import {sleep, swap} from "../utils";
 
 
-function timeInterval(view, unit=400) {
-    return unit * (1 / view.props.speed);
+function timeInterval(viewPanel, unit=400) {
+    return unit * (1 / viewPanel.state.speed);
 }
 
-async function bubbleSort(view) {
-    let arrayList = view.arrayList.current;
-    let values    = view.props.elements;
-    let arr       = values.slice();
+async function bubbleSort(controller, callback_finished) {
+    let values      = controller.elements;
+    let views       = controller.views;
+    let lists       = views.map(e => e.current.list.current);
+    // console.log(lists);
+    // let list        = view.list.current;
 
-    await sleep(timeInterval(view));
+    let arr         = values.slice();
+
+    await sleep(timeInterval(controller));
 
     for (let i = 0; i < arr.length - 1; i++) {
         for (let j = 0; j < arr.length - i - 1; j++) {
-            // console.log("BUBBLE_SORT", arr.map(el => el.value), j, j + 1);
-            arrayList.setSelected(true, j, j + 1);
-            await sleep(timeInterval(view));
+            lists.forEach(l => l.setSelected(true, j, j + 1));
+            await sleep(timeInterval(controller));
             if (arr[j].value >= arr[j + 1].value) {
-                arrayList.setSwapped(true, j, j + 1);
-                await sleep(timeInterval(view));
-                swap(j, j + 1, arr, arrayList);
-                await sleep(timeInterval(view));
+                lists.forEach(l => l.setActive(true, j, j + 1));
+                await sleep(timeInterval(controller));
+                swap(j, j + 1, arr, controller);
+                await sleep(timeInterval(controller));
             }
-            arrayList.reset(j, j + 1);
+            lists.forEach(l => l.reset(j, j + 1));
         }
-        arrayList.setDisabled(true,arr.length - i - 1);
+        lists.forEach(l => l.setDisabled(true,arr.length - i - 1));
     }
-    arrayList.resetAll();
-    await sleep(timeInterval(view) * 4);
-    arrayList.passAll();
+    lists.forEach(l => l.resetAll());
+    await sleep(timeInterval(controller) * 4);
+    lists.forEach(l => l.passAll());
+    callback_finished();
 }
 
 export default bubbleSort

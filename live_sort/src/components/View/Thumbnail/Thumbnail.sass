@@ -1,0 +1,61 @@
+@import "../../../css/colors"
+@import "../../../css/animations"
+
+@mixin thumb_border($color)
+  border: 1px solid $color
+
+.thumbnail
+  //display: flex
+  $self: &
+  transition: 0.5s
+  opacity: 0.5
+  //background-color: transparent
+  & + &
+    margin-left: 20px
+
+  &__img
+    object-fit: cover
+    height: 6rem
+    width: 6rem
+    border-radius: 30px
+    transition: 1s
+    @include thumb_border($bright-grey)
+
+  &__label
+    //background-color: transparent
+    margin-top: 5px
+    text-align: center
+    font-size: 14px
+    color: $bright-grey
+    transition: 0.5s
+
+  &:hover
+    opacity: 1.0
+    cursor: pointer
+    transform: scale(1.05)
+
+    #{$self}__img
+      @include thumb_border($beige)
+    #{$self}__label
+      color: $beige
+  &_active
+    opacity: 0.6
+
+    #{$self}__img
+      @include thumb_border($grey)
+    #{$self}__label
+      color: $grey
+
+  &_disabled
+    &:hover
+      cursor: default
+      transform: none
+
+      #{$self}__img
+        @include thumb_border($bright-grey)
+      #{$self}__label
+        color: $bright-grey
+    &:active
+      animation: twirl 1s infinite
+
+

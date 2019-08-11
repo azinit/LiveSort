@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i&display=swap");
 *, body {
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
@@ -46,6 +46,20 @@ a:hover {
   color: #56dbd1;
   cursor: pointer;
 }
+.text_main {
+  color: #56dbd1;
+}
+
+.text-block + .text-block {
+  margin-top: 20px;
+}
+.text-block__paragraph {
+  text-align: left;
+  justify-content: flex-start;
+}
+.text-block__paragraph + .text-block__paragraph {
+  margin-top: 10px;
+}
 
 .subtext {
   font-size: 14px;
@@ -73,6 +87,7 @@ a:hover {
 .btn {
   color: #ffffff;
   outline: none;
+  user-select: none;
   padding: 15px;
   background-color: #4aaea5;
   border: none;
@@ -86,10 +101,24 @@ a:hover {
 .btn + .btn {
   margin-left: 10px;
 }
+.btn_inline {
+  background-color: transparent;
+}
+.btn_inline:hover {
+  background-color: transparent;
+  color: #f5f5f5;
+}
 
 .logo {
-  width: 25vh;
-  height: 25vh;
+  width: 20vh;
+  height: 20vh;
+  opacity: 0.7;
+  object-fit: contain;
+  transition: 1s;
+}
+.logo:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
 .b_hidden {

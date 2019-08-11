@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["App.sass"],"names":[],"mappings":"AAEA;EACE;EACA;EAEA","file":"App.css"}
+{"version":3,"sourceRoot":"","sources":["App.sass","../../css/colors.sass"],"names":[],"mappings":"AAEA;EACE;EACA;EACA,kBCDgB;EDEhB","file":"App.css"}

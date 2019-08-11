@@ -1,0 +1,26 @@
+.list {
+  flex-wrap: nowrap;
+  width: 70vw;
+}
+.list__element {
+  outline: none;
+  user-select: none;
+  transition: 0.7s;
+  flex-shrink: 2;
+  width: 10rem;
+  padding: 0;
+  color: #f5f5f5;
+}
+.list__element:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.list__element + .list__element {
+  margin-left: 10px;
+}
+.list__element:hover {
+  transform: scale(1.05);
+}
+
+/*# sourceMappingURL=List.css.map */

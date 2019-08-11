@@ -8,11 +8,11 @@ class CountSlider extends Component {
                 <Slider
                     labelEnabled={"Amount of elements"}
                     value={8}
-                    // onToggle={this.toggleProcess}
                     onChange={this.changeAmount}
                     max={16}
                     min={4}
                     step={1}
+                    disabled={this.props.disabled}
                 />
             </Fragment>
         );
