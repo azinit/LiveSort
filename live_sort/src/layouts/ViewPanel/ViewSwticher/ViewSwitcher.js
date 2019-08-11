@@ -3,9 +3,10 @@ import Thumbnail from "../../../components/View/Thumbnail/Thumbnail";
 import thumb_array from './view_array.jpg'
 import thumb_bubble from './view_bubble.jpg'
 import thumb_column from './view_column.jpg'
+import {range} from "../../../lib/utils/array";
 
-import {range} from "../../../lib/utils";
 
+/** Switch View **/
 class ViewSwitcher extends Component {
     state = {
         active: this.props.active
@@ -16,20 +17,11 @@ class ViewSwitcher extends Component {
         return (
             <div className="view-panel__switcher block">
                 {thumbnails}
-                {/*<Thumbnail label={"Boxes View"}*/}
-                {/*           src={thumb_array}*/}
-                {/*           id={0} active={0 === this.state.active}*/}
-                {/*           onClick={this.onClick}*/}
-                {/*/>*/}
-                {/*<Thumbnail label={"Creative View"}*/}
-                {/*           src={thumb_bubble}*/}
-                {/*           id={1}*/}
-                {/*           onClick={this.onClick}*/}
-                {/*/>*/}
             </div>
         );
     }
 
+    /** Get actual thumbnails **/
     computeThumbnails = () => {
         let labels = ["Boxes View", "Creative View", "Column View"];
         let sources = [thumb_array, thumb_bubble, thumb_column];
@@ -47,6 +39,7 @@ class ViewSwitcher extends Component {
         )
     };
 
+    /** Switch to new Thumbnail and View **/
     onClick = (i) => {
         this.setState({active: i});
         this.props.onSwitch(i);

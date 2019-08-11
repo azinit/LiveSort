@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import List from "./List/List";
 
+/** View for displaying test set by model (array, bubble, tree, ...) **/
 class View extends Component {
     constructor(props) {
         super(props);
@@ -8,7 +9,6 @@ class View extends Component {
             iterations: 0,
         };
         this.list = React.createRef();
-        this.swap = this.props.handlerSwap;
     }
 
     render() {
@@ -16,8 +16,6 @@ class View extends Component {
         const activeClass = (active) ? "view-panel__view_active" : "";
         return (
             <div className={`view-panel__view block ${activeClass}`}>
-                {/*<button onClick={this.hide}>Hide</button>*/}
-                {/*<button onClick={this.show}>Show</button>*/}
                 <List
                     elements={elements}
                     className={className}
@@ -27,6 +25,7 @@ class View extends Component {
         );
     }
 
+    /** Show if active **/
     componentWillUpdate(nextProps, nextState, nextContext) {
         let activeChanged = nextProps.active ^ this.props.active;
         if (activeChanged) {
@@ -34,15 +33,6 @@ class View extends Component {
             else                    this.hide();
         }
     }
-
-    // runSort = () => { bubbleSort(this) };
-
-    // viewSwap = (i, j) => {
-    //     let elements = this.props.elements;
-    //     swap(i, j, elements);
-    //     this.forceUpdate();
-    // };
-
 
     /****************************** LIST CONTROL ******************************/
     hide        = () => { this.list.current.hideAll() };

@@ -1,12 +1,11 @@
-// https://codepen.io/Mark_Bowley/pen/mEtqj?editors=1100
-
-// https://codepen.io/PaLy90/pen/JacEL
-// https://codepen.io/yunntan/pen/qsvCo
-// https://www.designcouch.com/home/why/2013/04/09/css3-bubble-with-no-images/
 @import "../../../css/colors"
 @import "../../../css/animations"
 
-// Match with box-colors?
+// https://codepen.io/Mark_Bowley/pen/mEtqj?editors=1100
+// https://codepen.io/PaLy90/pen/JacEL
+// https://codepen.io/yunntan/pen/qsvCo
+// https://www.designcouch.com/home/why/2013/04/09/css3-bubble-with-no-images/
+
 $reflex-disabled:         rgba(165, 165, 165, 0.1)
 $reflex-base:             rgba(255, 255, 255, 0.1)
 $reflex-active:           rgba(74, 174, 165,  0.8)
@@ -27,17 +26,13 @@ $dark-shadow:             rgba(0, 0, 0, 0.2)
     border-radius: 50%
     animation: float 3s ease-in-out infinite
 
+    // Bubble deep style
     //&:after
-    //  //background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%)
     //  background: -webkit-radial-gradient(center, ellipse cover, $reflex-base, $reflex-none 70%)
     //  border-radius: 50%
     //  box-shadow: inset 0 20px 30px $reflex-base
     //  content: ""
-    //  //left: 10px
     //  position: absolute
-    //  //height: 180px
-    //  //width: 180px
-    //  height: 10rem
     //  width: 10rem
 
     &:hover
@@ -49,7 +44,6 @@ $dark-shadow:             rgba(0, 0, 0, 0.2)
 
     &_selected
       @include reflection($dark-shadow, $reflex-selected)
-      //background-color: $grey
     &_active
       @include reflection($dark-shadow, $reflex-active)
       transition: 0.4s

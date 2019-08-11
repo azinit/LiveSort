@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Element from "../Element/Element";
-import {sleep} from "../../../lib/utils";
+import {sleep} from "../../../lib/utils/misc";
 
+/** View List for managing Elements **/
 class List extends Component {
     componentWillMount() {
         this.computeElements(this.props.elements);
@@ -17,6 +18,7 @@ class List extends Component {
         );
     }
 
+    /** Get ElementListDOM with parameters **/
     computeElements = (data) => {
         let elementsDOM  = [];
         const className  = `${this.props.className}__element`;
@@ -35,16 +37,15 @@ class List extends Component {
         this.elementsDOM = elementsDOM;
     };
 
-    componentWillUpdate(nextProps, nextState, nextContext) {
-        this.computeElements(nextProps.elements);
-    }
+    /** Update list if updated props.elements **/
+    componentWillUpdate(nextProps, nextState, nextContext) { this.computeElements(nextProps.elements) }
 
     get             = (i)   => this.elementsDOM[i];
     size            = ()    => this.elements.length;
     indices         = ()    => Array(this.size()).keys();
 
     /****************************** ELEMENT METHODS ******************************/
-
+    // Set appearance for elements
     setSelected = (mode, ...indices) => { indices.forEach(i => this.get(i).setSelected(mode)) };
     setActive   = (mode, i, j)       => { [i, j].forEach( i => this.get(i).setActive(mode))   };
     setDisabled = (mode, ...indices) => { indices.forEach(i => this.get(i).setDisabled(mode)) };
@@ -57,7 +58,7 @@ class List extends Component {
 
     /****************************** COLLECTION METHODS ******************************/
 
-
+    // pass all list with pauses
     async passAll() {
         for (let el of this.elementsDOM.slice()) {
             el.setSelected();
@@ -66,6 +67,7 @@ class List extends Component {
         }
     };
 
+    // show every element
     async showEvery() {
         await sleep(500);
         for (let el of this.elementsDOM) {

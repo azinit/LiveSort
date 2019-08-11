@@ -1,13 +1,14 @@
 .nav-panel {
   height: 100%;
   box-sizing: border-box;
-  width: 25vw;
   position: fixed;
   z-index: 1;
   top: 0;
   left: -25vw;
+  width: 25vw;
   background-color: #222222;
   overflow-x: hidden;
+  overflow-y: hidden;
   transition: margin-left, width, left 0.5s;
   font-size: 16px;
   color: #ffffff;

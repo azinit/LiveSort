@@ -14,27 +14,16 @@ a
   &:hover
     color: $soft-beige
 
-.element_center-hv
-  display: flex
-  justify-content: center
-  align-items: center
-  
-// https://codepen.io/trys/pen/vjRXLW/
-.fancy-text
-  display: flex
-  width: 100%
-  justify-content: center
-  align-items: center
-  text-align: center
-  &:before, &:after
-    content: ''
-    border-top: 2px solid
-    margin: 0 20px 0 0
-    flex: 1 0 20px
-  &:after
-    margin: 0 0 0 20px
+/********************************* COMMON *********************************/
+.b_hidden
+  opacity: 0.0
+  transition: 0.5s
 
+.b_unselectable
+  user-select: none
+  outline: none
 
+/********************************* TEXT ***********************************/
 .text
   font-size: 16px
   color: $white
@@ -45,7 +34,22 @@ a
       cursor: pointer
   &_main
     color: $soft-beige
-
+  &_muted
+    color: $grey
+  &_fancy
+    // https://codepen.io/trys/pen/vjRXLW/
+    display: flex
+    width: 100%
+    justify-content: center
+    align-items: center
+    text-align: center
+    &:before, &:after
+      content: ''
+      border-top: 2px solid
+      margin: 0 20px 0 0
+      flex: 1 0 20px
+    &:after
+      margin: 0 0 0 20px
 
 .text-block
   & + &
@@ -53,8 +57,10 @@ a
   &__paragraph
     text-align: left
     justify-content: flex-start
+    //line-height: 1px
     & + &
       margin-top: 10px
+
 
 .subtext
   font-size: 14px
@@ -66,6 +72,7 @@ a
   color: $white
   transition: 0.5s
 
+/********************************* BLOCK **********************************/
 .block
   display: flex
   justify-content: center
@@ -75,6 +82,7 @@ a
   &_expanded
     padding: 20px
 
+/********************************* BUTTON *********************************/
 .btn
   color: $white
   outline: none
@@ -96,16 +104,13 @@ a
       background-color: transparent
       color: $soft-grey
 
+/********************************* LOGO *********************************/
 .logo
-  width: 20vh
-  height: 20vh
+  width: 10rem
+  height: 10rem
   opacity: 0.7
   object-fit: contain
   transition: 1s
   &:hover
     opacity: 1.0
     cursor: pointer
-
-.b_hidden
-  opacity: 0.0
-  transition: 0.5s

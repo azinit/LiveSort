@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["ViewPanel.sass","../../css/colors.sass"],"names":[],"mappings":"AAEA;EACE,OCHgB;EDIhB;EACA;;AAEA;EACE;;AAEF;EACE;EACA;;AACF;EACE;;AACA;EACE;EACA;EACA;;AACJ;EACE;;AACF;EACE;;AACF;EACE","file":"ViewPanel.css"}
+{"version":3,"sourceRoot":"","sources":["ViewPanel.sass","../../css/colors.sass"],"names":[],"mappings":"AAEA;EACE,OCHgB;EDIhB;EACA;;AAEA;EACE;;AACF;EACE;EACA;;AACF;EACE;;AACA;EACE;EACA;EACA;;AACJ;EACE;;AACF;EACE;;AACF;EACE","file":"ViewPanel.css"}

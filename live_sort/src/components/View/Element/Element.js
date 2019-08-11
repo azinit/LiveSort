@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+/** Element of List ([0], [1], ...) **/
 class Element extends Component {
     DOM = React.createRef();
 
@@ -15,7 +16,7 @@ class Element extends Component {
         let {className, children} = this.props;
         return (
             <li
-                className={`list__element block ${className}`}
+                className={`list__element block ${className} b_unselectable`}
                 onClick={this.click}
                 ref={li => this.DOM = li}
             >
@@ -26,9 +27,7 @@ class Element extends Component {
 
     /****************************** METHODS SUMMARY ******************************/
 
-    click = () => {
-        console.log(this.props.element.value);
-    };
+    click = () => { console.log(this.props.element.value) };
 
     reset = () => {
         this.toggle(-1, this.STATE_SELECTED);
@@ -36,12 +35,14 @@ class Element extends Component {
         this.toggle(-1, this.STATE_DISABLED);
     };
 
+    // Set appearance for element
     setSelected = (mode=true) => { this.toggle(mode ? 1 : -1, this.STATE_SELECTED) };
     setActive   = (mode=true) => { this.toggle(mode ? 1 : -1, this.STATE_ACTIVE )  };
     setDisabled = (mode=true) => { this.toggle(mode ? 1 : -1, this.STATE_DISABLED) };
     setHidden   = (mode=true) => { this.toggle(mode ? 1 : -1, this.STATE_HIDDEN)   };
 
 
+    // Toggle classState (on/off) on element
     toggle = (operationCode, classState) => {
         if (this.DOM) {
             let classList = this.DOM.classList;
@@ -53,7 +54,7 @@ class Element extends Component {
                     classList.remove(classState);
                     break;
                 default:
-                    classList.onClick(classState);
+                    classList.toggle(classState);
                     break;
             }
         }

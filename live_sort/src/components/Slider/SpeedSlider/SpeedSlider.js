@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import Slider from "../Slider";
 
+/** Set speed of sorting as settings slider **/
 class SpeedSlider extends Component {
     render() {
         return (
@@ -19,14 +20,7 @@ class SpeedSlider extends Component {
         );
     }
 
-    changeSpeed = (val) => {
-        this.props.onChange(+val);
-    };
-
-    // toggleProcess = () => {
-    //     // TODO
-    //     console.log("Start/Stop");
-    // };
+    changeSpeed = (val) => { this.props.onChange(+val)};
 }
 
 export default SpeedSlider;

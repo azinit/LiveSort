@@ -38,6 +38,7 @@ class App extends Component {
 
     /****************************** FUNCTIONALYTY ******************************/
 
+    /** Toggle NavPanel **/
     handlerToggle = () => {
         // https://www.w3schools.com/howto/howto_js_sidenav.asp
         // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav_push_opacity
@@ -49,8 +50,11 @@ class App extends Component {
         NAV_DOM.classList.toggle("nav-panel_visible");
     };
 
+    /** Set count of elements **/
     handlerSetCount = (count) => { this.viewPanel.current.handlerCount(count) };
+    /** Set speed for sorting **/
     handlerSetSpeed = (speed) => { this.viewPanel.current.handlerSpeed(speed) };
+    /** Run Sort **/
     handlerSort = (isSorting) => { this.setState({isSorting: isSorting}) }
 }
 

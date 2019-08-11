@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import Slider from "../Slider";
 
+/** Count of elements settings slider **/
 class CountSlider extends Component {
     render() {
         return (
@@ -18,9 +19,7 @@ class CountSlider extends Component {
         );
     }
 
-    changeAmount = (val) => {
-        this.props.onChange(val);
-    };
+    changeAmount = (val) => { this.props.onChange(val) };
 }
 
 export default CountSlider;

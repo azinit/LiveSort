@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+/** View control bar **/
 class ViewBar extends Component {
     render() {
         return (

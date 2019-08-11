@@ -1,15 +1,16 @@
-import React, {Component} from 'react';
+import React, {Component}   from 'react';
+import ViewBar              from "./ViewBar/ViewBar";
+import View                 from "../../components/View/View";
+import ViewSwitcher         from "./ViewSwticher/ViewSwitcher";
+import bubbleSort           from "../../lib/sort/BubbleSort";
+import {getRandomArray}     from "../../lib/utils/nums";
+import {range, swap}        from "../../lib/utils/array";
 import './ViewPanel.css'
 import '../../components/View/List/List.css'
 import '../../components/View/Views/Array.css'
 import '../../components/View/Views/Bubble.css'
-import {getRandomArray} from "../../lib/utils/nums";
-import ViewBar from "./ViewBar/ViewBar";
-import View from "../../components/View/View";
-import bubbleSort from "../../lib/sort/BubbleSort";
-import {range, swap} from "../../lib/utils";
-import ViewSwitcher from "./ViewSwticher/ViewSwitcher";
 
+/** Base View Panel with sort displaying **/
 class ViewPanel extends Component {
     constructor(props) {
         super(props);
@@ -29,13 +30,10 @@ class ViewPanel extends Component {
 
     }
 
-    componentWillMount() {
-        this.handlerGenerate();
-    }
-
-    componentDidMount() {
-        this.viewsPassAll()
-    }
+    // Generate array before render
+    componentWillMount() { this.handlerGenerate() }
+    // Pass on array after render
+    componentDidMount() { this.viewsPassAll() }
 
     render() {
         const views = this.computeViews();
@@ -55,6 +53,7 @@ class ViewPanel extends Component {
         );
     }
 
+    /** Get actual views **/
     computeViews = () => {
         let classList = ["array-list", "bubble-list"];
         let refList = [this.arrayView, this.bubbleView];
@@ -72,16 +71,18 @@ class ViewPanel extends Component {
         )
     };
 
+    /** Update testset if count updated **/
     componentWillUpdate(nextProps, nextState, nextContext) {
         if (this.state.count !== nextState.count) {
             this.elements = getRandomArray(nextState.count);
         }
     }
 
-
+    /** Pass all test set if updated **/
     componentDidUpdate() {
         if (!this.props.isSorting) { this.viewsPassAll() }
     }
+
     /****************************** METHODS SUMMARY ******************************/
     // Views
     viewsPassAll = () => { this.views.forEach(v => v.current.list.current.passAll()) }
@@ -89,30 +90,33 @@ class ViewPanel extends Component {
     handlerCount = (count) => { this.setState({count: count}) };
     handlerSpeed = (speed) => { this.setState({speed: speed}) };
 
-    // Generate
+    /** Run generating **/
     handlerGenerate = () => {
         this.elements = getRandomArray(this.state.count);
         this.setState(this.state);
     };
 
 
-    // Sort
+    /** Run sorting **/
     handlerSort = () => {
+        // TODO: add Treesort!!!
+
         if (!this.props.isSorting) {
             const finish_sort = () => { this.props.handlerSort(false) };
             bubbleSort(this, finish_sort);
             this.props.handlerSort(true)
         } else {
-            console.log("ALREADY SORTING!");
+            console.log("Array already is sorting!");
         }
     };
 
+    /** Swap elements **/
     handlerSwap = (i, j) => {
         swap(i, j, this.elements);
         this.setState(this.state);
     };
 
-    // Switch View
+    /** Switch view **/
     handlerSwitch = (newActive) => { this.setState({active: newActive}) };
 }
 

@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["Slider.sass","../../css/colors.sass"],"names":[],"mappings":"AAIE;EACE;;AAEF;EACE;EACA;;AAEF;EACE;EACA;EACA;EACA;EACA;EACA,YChBc;EDiBd;EACA;EAEA;;AAEA;EACE;;AACF;EACE;EACA;EACA;EACA,YCtBY;EDuBZ;;AAEF;EACE;;AACA;EACE,YCjCU","file":"Slider.css"}
+{"version":3,"sourceRoot":"","sources":["Slider.sass","../../css/colors.sass"],"names":[],"mappings":"AAIE;EACE;;AAEF;EACE;;AAEF;EACE;EACA;EACA;EACA;EACA;EACA,YCfc;EDgBd;EACA;EAEA;;AAEA;EACE;;AACF;EACE;EACA;EACA;EACA,YCrBY;EDsBZ;;AAEF;EACE;;AACA;EACE,YChCU","file":"Slider.css"}

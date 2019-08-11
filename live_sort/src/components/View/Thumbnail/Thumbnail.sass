@@ -5,11 +5,10 @@
   border: 1px solid $color
 
 .thumbnail
-  //display: flex
   $self: &
   transition: 0.5s
   opacity: 0.5
-  //background-color: transparent
+
   & + &
     margin-left: 20px
 
@@ -22,7 +21,6 @@
     @include thumb_border($bright-grey)
 
   &__label
-    //background-color: transparent
     margin-top: 5px
     text-align: center
     font-size: 14px
@@ -38,6 +36,7 @@
       @include thumb_border($beige)
     #{$self}__label
       color: $beige
+
   &_active
     opacity: 0.6
 

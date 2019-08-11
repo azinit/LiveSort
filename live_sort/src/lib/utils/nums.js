@@ -1,7 +1,9 @@
+/** Get random int from range(min, max) **/
 function getRandomInt(max, min=4) {
     return Math.floor(Math.random() * Math.floor(max - min)) + min;
 }
 
+/** Generate random array **/
 function getRandomArray(n) {
     // n = n || getRandomInt(8);
 

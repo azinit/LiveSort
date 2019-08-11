@@ -3,8 +3,6 @@
   width: 70vw;
 }
 .list__element {
-  outline: none;
-  user-select: none;
   transition: 0.7s;
   flex-shrink: 2;
   width: 10rem;
